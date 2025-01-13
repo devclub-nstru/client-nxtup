@@ -1,0 +1,21 @@
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    .logo-container{
+        .logo-text{
+            font-family: $font-secondary;
+            font-size: 1.75rem;
+        }
+    }
+    
+    .social-links-container{
+        .links{
+            display: flex;
+            gap: 1rem;
+        }
+    }
+}
+
+

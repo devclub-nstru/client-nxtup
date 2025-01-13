@@ -1,0 +1,33 @@
+.cards-container{
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1rem;
+
+    @include respond-to(lg) {
+        width: 350px;
+        height: 300px;
+    }
+
+    .cards-content{
+        padding: 0.5rem;
+        background-color: #BFBFBF;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+
+        .card-title{
+            color: $primary-text-color;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-subtitle{
+            font-size: 0.75rem;
+        }
+    }
+}
+

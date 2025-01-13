@@ -56,3 +56,45 @@
     }
   }
 }
+
+.events-container {
+  .events-container-heading {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 5rem;
+  }
+
+  .all-events-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: end;
+    gap: 1rem;
+
+    @include respond-to(lg) {
+      gap: 3rem;
+    }
+  }
+}
+
+.clubs-container {
+  height: fit-content;
+  background-color: $secondary-background-color;
+  color: $primary-background-color;
+  padding: 4rem 8rem;
+
+  .clubs-container-heading{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  .all-cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+}
