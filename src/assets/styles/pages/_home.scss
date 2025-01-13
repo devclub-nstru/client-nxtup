@@ -1,0 +1,58 @@
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond-to(xl) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .main-event-details-container {
+    @include respond-to(xl) {
+      text-align: center;
+    }
+    .main-event-title {
+      font-size: 4rem;
+      background: linear-gradient(to bottom, #ffffff, $text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+
+    .main-event-description {
+      margin-top: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .main-event-link {
+      border: 1px solid #693bff;
+      padding: 0.5rem 1.5rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  .event-details-container {
+    width: 55%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    gap: 2rem;
+
+    @include respond-to(xl) {
+      justify-content: center;
+      width: 65%;
+    }
+
+    @include respond-to(lg) {
+      justify-content: center;
+      width: 85%;
+    }
+
+    @include respond-to(md) {
+      justify-content: center;
+      width: 110%;
+    }
+  }
+}
