@@ -1,5 +1,5 @@
 .registration-form-container {
-    margin: 0 auto;
+    margin: 10% auto;
     width: 60%;
     padding: 1rem;
     background-color: $quaternary-background-color;
@@ -67,6 +67,10 @@
           font-size: 0.8rem;
           cursor: pointer;
           transition: all 0.3s ease-in-out;
+
+          @include respond-to("xs") {
+            width: 100%;
+          }
       }
      }
     }

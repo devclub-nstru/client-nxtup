@@ -4,10 +4,18 @@
     align-items: center;
     padding: 1.5rem 0;
 
+    @include respond-to("xs") {
+        padding: 1rem 0.75rem;
+    }
+
     .logo-container{
         .logo-text{
             font-family: $font-secondary;
             font-size: 1.75rem;
+
+            @include respond-to("xs") {
+                font-size: 1rem;
+            }
         }
     }
 
@@ -15,6 +23,10 @@
         .links{
             display: flex;
             gap: 1rem;
+
+            @include respond-to("xs") {
+                gap: 0.5rem;
+            }
         }
     }
 }

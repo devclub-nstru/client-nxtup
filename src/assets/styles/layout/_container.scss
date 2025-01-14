@@ -30,6 +30,10 @@
   margin-top: $container-margin;
 }
 
-.section-gap{
-    margin-top: 8rem;
+.section-gap {
+  margin-top: 8rem;
+
+  @include respond-to("xs") {
+    margin-top: 4rem;
+  }
 }

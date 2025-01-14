@@ -12,6 +12,10 @@
     flex: 0 1 calc(50% - 16px);
   }
 
+  @include respond-to(xs) {
+    flex: 0 1 calc(100% - 16px);
+  }
+
   .small-card-title {
     font-weight: 500;
   }
