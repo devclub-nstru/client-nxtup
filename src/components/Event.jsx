@@ -1,8 +1,24 @@
 import React from "react";
 import DetailContainer from "./DetailContainer";
+import formatDate from "../utils/formatDate";
 
 function Event({ filter, events }) {
-  const filteredEvents = events.filter((event) => event.type === filter);
+  const currentDate = Number(new Date());
+
+  const filteredEvents = events.filter((event) => {
+    // const eventDate = new Date(event.Date); 
+    // event.Date milisecond
+
+    if (filter === "upcoming") {
+      return currentDate < event.Date; // Event is in the future
+    } else if (filter === "past") {
+      return currentDate > event.Date; // Event is in the past
+    } else if (event.IsActive) {
+      return event.IsActive; // Include active events
+    }
+    return false; // Fallback for unsupported filters
+  });
+  
 
   return (
     <section className="all-event-section">
@@ -13,13 +29,13 @@ function Event({ filter, events }) {
         {filteredEvents.length > 0 ? (
           filteredEvents.map((event) => (
             <DetailContainer
-              key={event.id}
-              id={event.id}
-              date={event.date}
-              time={event.time}
-              location={event.location}
-              details={event.details}
-              title={event.heading}
+              key={event._id}
+              id={event._id}
+              EventDate={formatDate(event.Date)}
+              time={event.Time}
+              location={event.Location}
+              details={event.Description}
+              title={event.Title}
             />
           ))
         ) : (
