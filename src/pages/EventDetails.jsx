@@ -95,6 +95,7 @@ const EventDetails = () => {
           </div>
         );
       case "memories":
+
         return (
           <div className="tab-content">
             <div className="memories-gallery">
@@ -180,7 +181,7 @@ const EventDetails = () => {
                 </div>
                 <div className="info-text">
                   <p className="top">Registered</p>
-                  <p className="bottom">105</p>
+                  <p className="bottom">{event.Registered}</p>
                 </div>
               </div>
               <div className="info-container">
@@ -189,7 +190,7 @@ const EventDetails = () => {
                 </div>
                 <div className="info-text">
                   <p className="top">Team Size</p>
-                  <p className="bottom">2 - 3 Members</p>
+                  <p className="bottom">{event.TeamSizeStart}-{event.TeamSizeEnd} Members</p>
                 </div>
               </div>
               <div className="info-container">
@@ -198,7 +199,7 @@ const EventDetails = () => {
                 </div>
                 <div className="info-text">
                   <p className="top">Prizes worth</p>
-                  <p className="bottom">₹ 10,000</p>
+                  <p className="bottom">₹ {event.Prize}</p>
                 </div>
               </div>
               <div className="info-container">
@@ -207,7 +208,7 @@ const EventDetails = () => {
                 </div>
                 <div className="info-text">
                   <p className="top">Registration Deadline</p>
-                  <p className="bottom">8 Days left</p>
+                  <p className="bottom">{new Date(event.Deadline).toDateString().split(' ').splice(1,2).reverse().join(" ")}</p>
                 </div>
               </div>
             </div>

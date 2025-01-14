@@ -115,6 +115,7 @@ const Registration = () => {
                   name={field.inputName}
                   // required={field.required}
                   onChange={handleInputChange}
+                  required
                 >
                   <option value="">Select an option</option>
                   {field.placeholder.map((option, index) => (
@@ -142,6 +143,7 @@ const Registration = () => {
                         name={field.inputName}
                         value={option}
                         onChange={handleInputChange}
+                        required
                       />
                       <label>{option}</label>
                     </div>
@@ -166,8 +168,9 @@ const Registration = () => {
                         type="radio"
                         name={field.inputName}
                         value={option}
-                        required={field.required}
+                        required
                         onChange={handleInputChange}
+                        
                       />
                       <label>{option}</label>
                     </div>
@@ -187,7 +190,7 @@ const Registration = () => {
                 type={field.type}
                 name={field.inputName}
                 placeholder={field.placeholder}
-                required={field.required}
+                required
                 onChange={handleInputChange}
               />
             </div>

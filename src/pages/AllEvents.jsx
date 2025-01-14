@@ -14,16 +14,18 @@ const AllEvents = () => {
   const [activeTab, setActiveTab] = useState("events");
   const [eventFilter, setEventFilter] = useState("upcoming");
   const [events, setEvents] = useState([]);
+  const [isLoading,setisLoading] = useState(false);
   
   useEffect(() => {
     const fetchData = async () => {
+      setisLoading(true)
       try {
         const data = await getEvents();  
-        setEvents(data);  
-        
+        setEvents(data.filter(el=>el.IsActive));  
       } catch (error) {
         toast.error("Error loading data!");  
       }
+      setisLoading(false)
     };
 
     fetchData();  
@@ -34,7 +36,7 @@ const AllEvents = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "events":
-        return <Event filter={eventFilter} events={events} />;
+        return <Event filter={eventFilter} setisLoading={setisLoading} isLoading={isLoading} events={events} />;
       case "clubs":
         return <Clubs />;
       case "clans":
