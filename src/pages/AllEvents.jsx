@@ -188,7 +188,7 @@ const AllEvents = () => {
             )}
           </li>
           <li
-            className={activeTab === "clubs" ? "active" : ""}
+            className={`${activeTab === "clubs" ? "orange" : ""}`}
             onClick={() => setActiveTab("clubs")}
           >
             <div className="dashboard-item">
@@ -197,7 +197,7 @@ const AllEvents = () => {
             </div>
           </li>
           <li
-            className={activeTab === "clans" ? "active" : ""}
+            className={`${activeTab === "clans" ? "green" : ""}`}
             onClick={() => setActiveTab("clans")}
           >
             <div className="dashboard-item">

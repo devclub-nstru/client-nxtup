@@ -1,13 +1,14 @@
 .dashboard {
   display: flex;
-  margin: 20% auto;
+  margin: 5% auto;
   width: 90%;
   max-width: 1200px;
   background: rgba(255, 255, 255, 0.05);
   border: 2.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   backdrop-filter: blur(10px);
-  overflow-x: scroll;
+  max-height: 60vh;
+
 
   @include respond-to("lg") {
     flex-direction: column;
@@ -17,12 +18,20 @@
     width: 20%;
     padding: 1rem;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
-
+    position: sticky;
+    top: 5%;
+    
     @include respond-to("lg") {
       width: 100%;
+      height: auto;
       border-right: none;
       padding: 0.5rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @include respond-to("xs") {
+      position: relative;
+      height: auto;
     }
 
     ul {
@@ -44,8 +53,16 @@
         transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 
         &.active {
-          color: $primary-text-color;
+          color: #5D35E3;
           font-weight: bold;
+        }
+
+        &.green{
+          color: #36E8B0;
+        }
+
+        &.orange{
+          color: #D97035;
         }
 
         &:hover {
@@ -90,8 +107,10 @@
     padding: 1rem 2rem;
     font-size: 1.1rem;
     color: #000;
-
+    overflow-y: auto;
+    
     @include respond-to("lg") {
+      height: 100vh;
       width: 100%;
     }
   }
