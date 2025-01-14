@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Events({eventType, eventName, eventDate, color}) {
+function Events({eventType, eventName, eventDate, color, url}) {
   return (
     <>
+    <Link to={url}>
     <section className={`event-container ${color}`}>
         <div className="tag-container">
             <div className="tag-circle"></div>
@@ -13,6 +15,7 @@ function Events({eventType, eventName, eventDate, color}) {
             <p className="event-date">{eventDate}</p>
         </div>
     </section>
+    </Link>
     </>
   )
 }

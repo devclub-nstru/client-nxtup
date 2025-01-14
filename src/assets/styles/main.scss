@@ -14,8 +14,13 @@
 @import "components/cards";
 @import "components/footer";
 @import "components/loader";
+@import "components/detailContainer";
+@import "components/clan";
+@import "components/club";
+@import "components/event";
 
 @import "pages/home";
 @import "pages/eventDetails";
 @import "pages/registration";
 @import "pages/notFound";
+@import "pages/allEvents";

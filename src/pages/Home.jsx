@@ -28,20 +28,20 @@ function Home() {
                 <Link className="main-event-link" to={"/events/1"}>View Details</Link>
             </div>
             <div data-aos="fade-left" className="event-details-container">
-                <SmallCards title="Events" type="events" />
-                <SmallCards title="Clubs" type="clubs" />
-                <SmallCards title="Clans" type="clans" />
-                <SmallCards title="More" type="more" />
+                <SmallCards title="Events" type="events" url="/events" />
+                <SmallCards title="Clubs" type="clubs"  url="/events" />
+                <SmallCards title="Clans" type="clans"  url="/events" />
+                <SmallCards title="More" type="more"  url="/events" />
             </div>
         </section>
         <section data-aos="fade-up" className="events-container container section-gap">
             <h1 className='events-container-heading'>Events</h1>
             <div className="all-events-container">
-                <Events eventType="Cultural Fest" eventName="Damru Fest" eventDate="29 - 30 November" color="green" />
-                <Events eventType="Cultural Event" eventName="Lohri Festival" eventDate="13 January, 2025" color="orange" />
-                <Events eventType="Tech Event" eventName="NST Hackathon" eventDate="15 - 17 January" color="red" />
-                <Events eventType="Sports Event" eventName="Sports meet" eventDate="22 February, 2025" color="yellow" />
-                <Events eventType="Cultural Event" eventName="Holi Celebration" eventDate="14 March, 2025" color="pink" />
+                <Events eventType="Cultural Fest" eventName="Damru Fest" eventDate="29 - 30 November" color="green" url="/events/1" />
+                <Events eventType="Cultural Event" eventName="Lohri Festival" eventDate="13 January, 2025" color="orange" url="/events/2" />
+                <Events eventType="Tech Event" eventName="NST Hackathon" eventDate="15 - 17 January" color="red" url="/events/3" />
+                <Events eventType="Sports Event" eventName="Sports meet" eventDate="22 February, 2025" color="yellow" url="/events/4" />
+                <Events eventType="Cultural Event" eventName="Holi Celebration" eventDate="14 March, 2025" color="pink" url="/events/5" />
             </div>
         </section>
 
