@@ -20,12 +20,12 @@ function Home() {
                 <div className="outer-active">
                     <div className="inner-active"></div>
                 </div>
-                <h1 className="main-event-title">NST Hackathon</h1>
+                <h1 className="main-event-title">Neutron 2025</h1>
                 </div>
                 <p className="main-event-description">
-                    Happening now at Mini Audi, Rishihood University
+                    Coming soon
                 </p>
-                <Link className="main-event-link" to={"/events/1"}>View Details</Link>
+                <Link className="main-event-link" to={"/events"}>View More Events</Link>
             </div>
             <div data-aos="fade-left" className="event-details-container">
                 <SmallCards title="Events" type="events" url="/events" />
