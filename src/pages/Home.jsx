@@ -34,9 +34,9 @@ function Home() {
                 <SmallCards title="More" type="more"  url="/events" />
             </div>
         </section>
-        <section data-aos="fade-up" className="events-container container section-gap">
-            <h1 className='events-container-heading'>Events</h1>
-            <div className="all-events-container">
+        <section data-aos="fade-up" className="home-events-container container section-gap">
+            <h1 className='home-events-container-heading'>Events</h1>
+            <div className="home-all-events-container">
                 <Events eventType="Cultural Fest" eventName="Damru Fest" eventDate="29 - 30 November" color="green" url="/events/1" />
                 <Events eventType="Cultural Event" eventName="Lohri Festival" eventDate="13 January, 2025" color="orange" url="/events/2" />
                 <Events eventType="Tech Event" eventName="NST Hackathon" eventDate="15 - 17 January" color="red" url="/events/3" />
