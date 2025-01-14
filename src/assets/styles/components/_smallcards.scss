@@ -30,17 +30,30 @@
   background: -webkit-radial-gradient(at bottom left, #693bff);
   background: radial-gradient(at bottom right, #693bff, #09090b, transparent);
 }
+
+.small-cards-continer.events {
+  border: 1px solid #693bff
+}
 .small-cards-continer.clubs {
   background: -webkit-radial-gradient(at bottom left, #ff833b);
   background: radial-gradient(at bottom right, #ff833b, #09090b, transparent);
+}
+.small-cards-continer.clubs {
+  border: 1px solid #ff833b
 }
 .small-cards-continer.clans {
   background: -webkit-radial-gradient(at bottom left, #3bffc1);
   background: radial-gradient(at bottom right, #3bffc1, #09090b, transparent);
 }
+.small-cards-continer.clans {
+  border: 1px solid #3bffc1
+}
 .small-cards-continer.more {
   background: -webkit-radial-gradient(at bottom left, #ff3b3e);
   background: radial-gradient(at bottom right, #ff3b3e, #09090b, transparent);
+}
+.small-cards-continer.more {
+  border: 1px solid #ff3b3e
 }
 
 
