@@ -1,11 +1,11 @@
 .cards-container{
-    width: 250px;
-    height: 200px;
-    border: 1px solid black;
+    width: 280px;
+    height: 220px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 1rem;
+    background-color: $tertiary-background-color;
 
     @include respond-to(lg) {
         width: 350px;

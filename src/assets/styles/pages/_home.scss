@@ -12,17 +12,79 @@
     @include respond-to(xl) {
       text-align: center;
     }
-    .main-event-title {
-      font-size: 4rem;
-      background: linear-gradient(to bottom, #ffffff, $text-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.1;
+
+    .main-event-title-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      @include respond-to("xs") {
+        gap: 0.5rem;
+      }
+      .outer-active {
+        width: 30px;
+        height: 30px;
+        background-color: #a9fda2;
+        border-radius: 50%;
+        position: relative;
+        @include respond-to("xs") {
+            width: 15px;
+            height: 15px;
+        }
+        &:after {
+          background-color: #0ea900;
+          content: "";
+          display: block;
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation-name: blink;
+          animation-duration: 1.3s;
+          animation-iteration-count: infinite;
+          animation-direction: alternate-reverse;
+          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .inner-active {
+          width: 15px;
+          height: 15px;
+          background-color: #0ea900;
+          border-radius: 50%;
+          position: relative;
+          top: 7.5px;
+          left: 7.5px;
+          @include respond-to("xs") {
+            width: 7.5px;
+            height: 7.5px;
+            top: 3.75px;
+            left: 3.75px;
+          }
+        }
+      }
+
+      .main-event-title {
+        font-size: 4rem;
+        background: linear-gradient(to bottom, #ffffff, $text-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.1;
+
+        @include respond-to("xs") {
+            font-size: 2rem;
+        }
+      }
     }
 
     .main-event-description {
       margin-top: 0.5rem;
       margin-bottom: 2.5rem;
+
+      @include respond-to("xs") {
+        font-size: 0.8rem;
+    }
     }
 
     .main-event-link {
@@ -30,6 +92,12 @@
       padding: 0.5rem 1.5rem;
       border-radius: 1rem;
       font-size: 0.8rem;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #693bff;
+        color: $primary-text-color;
+      }
     }
   }
 
@@ -53,6 +121,12 @@
     @include respond-to(md) {
       justify-content: center;
       width: 110%;
+    }
+
+    @include respond-to(xs) {
+      gap: 1rem;
+      width: 100%;
+      align-items: center;
     }
   }
 }
@@ -82,19 +156,32 @@
   height: fit-content;
   background-color: $secondary-background-color;
   color: $primary-background-color;
-  padding: 4rem 8rem;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  .clubs-container-heading{
+  .clubs-container-heading {
     text-align: center;
     font-size: 3rem;
     font-weight: 600;
   }
 
-  .all-cards-container{
+  .all-cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
+  }
+}
+@keyframes blink {
+  0% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale3d(1.2, 1.4, 1.2);
+    opacity: 0;
   }
 }

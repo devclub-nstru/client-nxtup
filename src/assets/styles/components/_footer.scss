@@ -3,10 +3,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    .logo-container{
-        .logo-text{
-            font-family: $font-secondary;
-            font-size: 1.75rem;
+    @include respond-to("xs") {
+        padding: 2rem 0.75rem;
+    }
+    .footer-text-container{
+        .footer-text{
+            font-size: 1rem;
+            @include respond-to("xs") {
+                font-size: 0.75rem;
+            }
         }
     }
     
@@ -14,6 +19,9 @@
         .links{
             display: flex;
             gap: 1rem;
+            @include respond-to("xs") {
+                gap: 0.5rem;
+            }
         }
     }
 }
