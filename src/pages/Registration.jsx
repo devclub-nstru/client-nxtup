@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import formConfig from "../data/formConfig";
 import Loader from "../components/Loader";
 import { showError, showSuccess } from "../utils/toastUtil";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import getEvents from "../services/eventService";
-import { toast } from "react-toastify";
 import axios from "axios";
 
 const Registration = () => {
   const { eventId } = useParams();
-  const navigate = useNavigate(); // To handle redirection
+  const navigate = useNavigate(); 
   const [formFields, setFormFields] = useState([]);
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -27,7 +25,7 @@ const Registration = () => {
         setmyEvents(data);
 
       } catch (error) {
-        toast.error("Error loading data!");
+        showError("Error loading data!");
       }
     };
 
@@ -72,15 +70,15 @@ const Registration = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://ee7a-115-244-141-202.ngrok-free.app/submits", { eventId: event, studentDetails: formData }, { headers: { "ngrok-skip-browser-warning": "69420" } });
+      const response = await axios.post("https://server-nxtup.onrender.com/submits", { eventId: event, studentDetails: formData }, { headers: { "ngrok-skip-browser-warning": "69420" } });
 
-      toast.success("Submit Success!")
+      showSuccess("Submit Success!")
       navigate("/")
 
 
     } catch (error) {
       if (error.response) {
-        toast.error("Error")
+        showError("Error")
         console.log(`Error: ${error.response.data}`);
       } else {
         console.log("An unexpected error occurred. Please try again.");
@@ -97,20 +95,15 @@ const Registration = () => {
     <div data-aos="fade-up" className="registration-form-container">
       <div className="intro-container">
         <h1 className="registration-form-heading">Registration Form</h1>
+        {/* {formFields.map((field) => (
         <p className="registration-form-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa
-          mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla,
-          mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis
-          tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et
-          massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien
-          fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae
-          mattis tellus. Aliquam in hendrerit urna. Pellentesque sit amet sapien
-          fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae
-          mattis tellus.
+          {field.Description}
         </p>
+      ))} */}
+
       </div>
       <form onSubmit={handleSubmit}>
-        {formFields.map((field) => {
+      {formFields.map((field) => {
           if (field.type === "Select") {
             return (
               <div key={field.name} className="form-group">
