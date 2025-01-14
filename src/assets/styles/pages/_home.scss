@@ -131,15 +131,15 @@
   }
 }
 
-.events-container {
-  .events-container-heading {
+.home-events-container {
+  .home-events-container-heading {
     text-align: center;
     font-size: 3rem;
     font-weight: 500;
     margin-bottom: 5rem;
   }
 
-  .all-events-container {
+  .home-all-events-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

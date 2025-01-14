@@ -9,7 +9,6 @@
   backdrop-filter: blur(10px);
   max-height: 60vh;
 
-
   @include respond-to("lg") {
     flex-direction: column;
   }
@@ -20,7 +19,7 @@
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 5%;
-    
+
     @include respond-to("lg") {
       width: 100%;
       height: auto;
@@ -53,16 +52,16 @@
         transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 
         &.active {
-          color: #5D35E3;
+          color: #5d35e3;
           font-weight: bold;
         }
 
-        &.green{
-          color: #36E8B0;
+        &.green {
+          color: #36e8b0;
         }
 
-        &.orange{
-          color: #D97035;
+        &.orange {
+          color: #d97035;
         }
 
         &:hover {
@@ -108,7 +107,7 @@
     font-size: 1.1rem;
     color: #000;
     overflow-y: auto;
-    
+
     @include respond-to("lg") {
       height: 100vh;
       width: 100%;
