@@ -6,6 +6,7 @@ import CardsContainer from '../components/CardsContainer'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+
 function Home() {
 
   useEffect(() => {
@@ -20,12 +21,12 @@ function Home() {
                 <div className="outer-active">
                     <div className="inner-active"></div>
                 </div>
-                <h1 className="main-event-title">NST Hackathon</h1>
+                <h1 className="main-event-title">Neutron 2025</h1>
                 </div>
                 <p className="main-event-description">
-                    Happening now at Mini Audi, Rishihood University
+                    Coming soon
                 </p>
-                <Link className="main-event-link" to={"/events/1"}>View Details</Link>
+                <Link className="main-event-link" to={"/events"}>View More Events</Link>
             </div>
             <div data-aos="fade-left" className="event-details-container">
                 <SmallCards title="Events" type="events" url="/events" />
@@ -37,11 +38,11 @@ function Home() {
         <section data-aos="fade-up" className="home-events-container container section-gap">
             <h1 className='home-events-container-heading'>Events</h1>
             <div className="home-all-events-container">
-                <Events eventType="Cultural Fest" eventName="Damru Fest" eventDate="29 - 30 November" color="green" url="/events/1" />
-                <Events eventType="Cultural Event" eventName="Lohri Festival" eventDate="13 January, 2025" color="orange" url="/events/2" />
-                <Events eventType="Tech Event" eventName="NST Hackathon" eventDate="15 - 17 January" color="red" url="/events/3" />
-                <Events eventType="Sports Event" eventName="Sports meet" eventDate="22 February, 2025" color="yellow" url="/events/4" />
-                <Events eventType="Cultural Event" eventName="Holi Celebration" eventDate="14 March, 2025" color="pink" url="/events/5" />
+                <Events eventType="Cultural Fest" eventName="Damru Fest" eventDate="Coming Soon" color="green" url="/events/1" />
+                <Events eventType="Cultural Event" eventName="Lohri Festival" eventDate="Coming Soon" color="orange" url="/events/2" />
+                <Events eventType="Tech Event" eventName="Neutron" eventDate="Coming Soon" color="red" url="/events/" />
+                <Events eventType="Sports Event" eventName="Sports meet" eventDate="Coming Soon" color="yellow" url="/events/4" />
+                <Events eventType="Cultural Event" eventName="Holi Celebration" eventDate="Coming Soon" color="pink" url="/events/5" />
             </div>
         </section>
 
