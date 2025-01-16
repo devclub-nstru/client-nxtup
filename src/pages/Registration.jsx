@@ -18,9 +18,9 @@ const Registration = () => {
   const [event, setEvent] = useState({});
 
   const [myevents, setmyEvents] = useState([]);
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+  // useEffect(() => {
+  //   console.log(formData);
+  // }, [formData]);
 
   useEffect(() => {
     const fetchData = async () => {
