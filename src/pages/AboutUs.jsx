@@ -14,14 +14,14 @@ function AboutUs() {
           <Link to="https://www.linkedin.com/in/adityainnovates/">
             <CardsContainer
               clubName="Aditya Kumar"
-              presidentName="Backend Developer"
+              presidentName="Full-Stack Developer"
               imageUrl={"/images/aditya_pfp.jpeg"}
             />
           </Link>
           <Link to="https://www.linkedin.com/in/ved-pawar-00169a268/">
             <CardsContainer
               clubName="Ved Pawar"
-              presidentName="Backend Developer"
+              presidentName="DevOps Developer"
               imageUrl={"/images/ved_pfp.jpeg"}
             />
           </Link>
@@ -35,14 +35,14 @@ function AboutUs() {
           <Link to="https://www.linkedin.com/in/shreyansh-agrawal-695289203/">
             <CardsContainer
               clubName="Shreyansh Agarwal"
-              presidentName="Frontend Developer"
+              presidentName="Middleware Developer"
               imageUrl="/images/shreyansh_pfp.jpeg"
             />
           </Link>
           <Link to="https://www.linkedin.com/in/raghav-gupta-b890b7323/">
             <CardsContainer
               clubName="Raghav Gupta"
-              presidentName="Backend Developer"
+              presidentName="API Engineer"
               imageUrl="/images/raghav_pfp.jpeg"
             />
           </Link>
