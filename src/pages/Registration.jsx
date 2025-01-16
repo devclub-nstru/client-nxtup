@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import getEvents from "../services/eventService";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Registration = () => {
   const { eventId } = useParams();
@@ -17,9 +18,9 @@ const Registration = () => {
   const [event, setEvent] = useState({});
 
   const [myevents, setmyEvents] = useState([]);
-  // useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,12 +56,34 @@ const Registration = () => {
   useEffect(() => {
     AOS.init();
   }, []);
-  function handleInputChange(e) {
+  function handleInputChange(e, max, inputName) {
     const { name, value } = e.target;
     if (e.target.type == "checkbox") {
+      if (!e.target.checked) {
+        Array.from(
+          document.querySelectorAll(`input[name='${inputName}']`)
+        ).forEach((el) => el.removeAttribute("disabled"));
+        return setFormData((prev) => ({
+          ...prev,
+          [name]: formData?.[name]
+            .split(",")
+            .map((e) => e.trim())
+            .filter((el) => el !== value)
+            .join(", "),
+        }));
+      }
+      if (
+        max &&
+        formData?.[name] &&
+        formData?.[name].split(",").length >= max - 1
+      ) {
+        Array.from(document.querySelectorAll(`input[name='${inputName}']`))
+          .filter((el) => !el.checked)
+          .forEach((el) => el.setAttribute("disabled", true));
+      }
       return setFormData((prev) => ({
         ...prev,
-        [name]: (prev?.name ? prev?.name + ", " : "") + value,
+        [name]: (formData?.[name] ? formData?.[name] + ", " : "") + value,
       }));
     }
     setFormData((prev) => ({
@@ -145,7 +168,13 @@ const Registration = () => {
                         name={field.inputName}
                         value={option}
                         required={field.required}
-                        onChange={handleInputChange}
+                        onChange={(e) =>
+                          handleInputChange(
+                            e,
+                            field?.maxValue,
+                            field?.inputName
+                          )
+                        }
                       />
                       <label>{option}</label>
                     </div>
