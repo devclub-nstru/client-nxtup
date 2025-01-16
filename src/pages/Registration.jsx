@@ -95,7 +95,7 @@ const Registration = () => {
     <div data-aos="fade-up" className="registration-form-container">
       <div className="intro-container">
         <h1 className="registration-form-heading">
-          {event.Title.includes("Neutron")
+          {event?.Title.includes("Neutron")
             ? "Application Form"
             : "Registration Form"}
         </h1>
@@ -113,31 +113,7 @@ const Registration = () => {
                   style={{ color: "#fff !important" }}
                   name={field.inputName}
                   onChange={handleInputChange}
-                  required
-                >
-                  <option value="">Select an option</option>
-                  {field.placeholder.map((option, index) => (
-                    <option key={index} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            );
-          }
-
-          if (field.type === "select") {
-            return (
-              <div key={field.name} className="form-group">
-                <div className="formInputLabel">
-                  <label>{field.inputName}</label>
-                  {field.required && <span className="required">*</span>}
-                </div>
-                <select
-                  style={{ color: "#fff !important" }}
-                  name={field.inputName}
-                  onChange={handleInputChange}
-                  required
+                  required={field.required}
                 >
                   <option value="">Select an option</option>
                   {field.placeholder.map((option, index) => (
@@ -165,6 +141,7 @@ const Registration = () => {
                         type="checkbox"
                         name={field.inputName}
                         value={option}
+                        required={field.required}
                         onChange={handleInputChange}
                       />
                       <label>{option}</label>
@@ -190,7 +167,7 @@ const Registration = () => {
                         type="radio"
                         name={field.inputName}
                         value={option}
-                        required
+                        required={field.required}
                         onChange={handleInputChange}
                       />
                       <label>{option}</label>
@@ -207,14 +184,26 @@ const Registration = () => {
                 <label>{field.inputName}</label>
                 {field.required && <span className="required">*</span>}
               </div>
-              <input
-                type={field.type}
-                style={{ color: "#ffffff" }}
-                name={field.inputName}
-                placeholder={field.placeholder}
-                required
-                onChange={handleInputChange}
-              />
+              {field.type == "textarea" ? (
+                <textarea
+                  type={"textarea"}
+                  style={{ color: "#ffffff" }}
+                  name={field.inputName}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  onChange={handleInputChange}
+                />
+              ) : (
+                <input
+                  type={field.type == "link" ? "text" : field.type}
+                  style={{ color: "#ffffff" }}
+                  name={field.inputName}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  onChange={handleInputChange}
+                  pattern={field.type == "link" ? "https?://.+" : undefined}
+                />
+              )}
             </div>
           );
         })}
