@@ -5,6 +5,7 @@ import EventDetails from "../pages/EventDetails";
 import Registration from "../pages/Registration";
 import NotFound from "../pages/NotFound";
 import AllEvents from "../pages/AllEvents";
+import AboutUs from "../pages/AboutUs";
 
 function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ function AppRoutes() {
       <Route path="/events" element={<AllEvents />} />
       <Route path="/events/:eventId" element={<EventDetails />} />
       <Route path="/events/:eventId/register" element={<Registration />} />
+      <Route path="/about-us" element={<AboutUs />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

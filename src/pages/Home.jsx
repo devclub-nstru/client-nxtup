@@ -32,7 +32,7 @@ function Home() {
                 <SmallCards title="Events" type="events" url="/events" />
                 <SmallCards title="Clubs" type="clubs"  url="/events" />
                 <SmallCards title="Clans" type="clans"  url="/events" />
-                <SmallCards title="More" type="more"  url="/events" />
+                <SmallCards title="About Us" type="more"  url="/about-us" />
             </div>
         </section>
         <section data-aos="fade-up" className="home-events-container container section-gap">
@@ -40,7 +40,7 @@ function Home() {
             <div className="home-all-events-container">
                 <Events eventType="Cultural Fest" eventName="Damru Fest" eventDate="Coming Soon" color="green" url="/events/1" />
                 <Events eventType="Cultural Event" eventName="Lohri Festival" eventDate="Coming Soon" color="orange" url="/events/2" />
-                <Events eventType="Tech Event" eventName="Neutron" eventDate="Coming Soon" color="red" url="/events/" />
+                <Events eventType="Tech Event" eventName="Neutron" eventDate="Coming Soon" color="red" url="events/678939eb67393a5b93bfa778" />
                 <Events eventType="Sports Event" eventName="Sports meet" eventDate="Coming Soon" color="yellow" url="/events/4" />
                 <Events eventType="Cultural Event" eventName="Holi Celebration" eventDate="Coming Soon" color="pink" url="/events/5" />
             </div>
