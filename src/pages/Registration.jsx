@@ -9,7 +9,7 @@ import axios from "axios";
 
 const Registration = () => {
   const { eventId } = useParams();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [formFields, setFormFields] = useState([]);
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,6 @@ const Registration = () => {
       try {
         const data = await getEvents();
         setmyEvents(data);
-
       } catch (error) {
         showError("Error loading data!");
       }
@@ -31,8 +30,6 @@ const Registration = () => {
 
     fetchData();
   }, []);
-
-
 
   useEffect(() => {
     setLoading(true);
@@ -42,7 +39,6 @@ const Registration = () => {
 
       if (eventDetails) {
         setEvent(eventDetails);
-        console.log(eventDetails?.Form?.sequence)
         setFormFields(eventDetails?.Form?.sequence);
       } else {
         setEvent(null);
@@ -51,9 +47,7 @@ const Registration = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
-
   }, [myevents]);
-
 
   useEffect(() => {
     AOS.init();
@@ -70,22 +64,22 @@ const Registration = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://server-nxtup.onrender.com/submits", { eventId: event, studentDetails: formData }, { headers: { "ngrok-skip-browser-warning": "69420" } });
+      const response = await axios.post(
+        "https://server-nxtup.onrender.com/submits",
+        { eventId: event, studentDetails: formData },
+        { headers: { "ngrok-skip-browser-warning": "69420" } }
+      );
 
-      showSuccess("Submit Success!")
-      navigate("/")
-
-
+      showSuccess("Submit Success!");
+      navigate("/");
     } catch (error) {
       if (error.response) {
-        showError("Error")
-        console.log(`Error: ${error.response.data}`);
+        showError("Something wrong happend. Please try again later!");
       } else {
-        console.log("An unexpected error occurred. Please try again.");
+        showError("Something wrong happend. Please try again later!");
       }
     }
   };
-
 
   if (loading) {
     return <Loader />;
@@ -95,15 +89,9 @@ const Registration = () => {
     <div data-aos="fade-up" className="registration-form-container">
       <div className="intro-container">
         <h1 className="registration-form-heading">Registration Form</h1>
-        {/* {formFields.map((field) => (
-        <p className="registration-form-description">
-          {field.Description}
-        </p>
-      ))} */}
-
       </div>
       <form onSubmit={handleSubmit}>
-      {formFields.map((field) => {
+        {formFields.map((field) => {
           if (field.type === "Select") {
             return (
               <div key={field.name} className="form-group">
@@ -113,7 +101,6 @@ const Registration = () => {
                 </div>
                 <select
                   name={field.inputName}
-                  // required={field.required}
                   onChange={handleInputChange}
                   required
                 >
@@ -135,7 +122,7 @@ const Registration = () => {
                   <label>{field.inputName}</label>
                   {field.required && <span className="required">*</span>}
                 </div>
-                <div style={{ display: "flex", gap: "0.5rem" }}>
+                <div>
                   {field.placeholder.map((option, index) => (
                     <div key={index} className="checkbox-option">
                       <input
@@ -160,8 +147,7 @@ const Registration = () => {
                   <label>{field.inputName}</label>
                   {field.required && <span className="required">*</span>}
                 </div>
-                <div style={{ display: "flex", gap: "0.5rem" }}>
-
+                <div style={{ display: "flex", gap: "1.5rem" }}>
                   {field.placeholder.map((option, index) => (
                     <div key={index} className="radio-option">
                       <input
@@ -170,7 +156,6 @@ const Registration = () => {
                         value={option}
                         required
                         onChange={handleInputChange}
-                        
                       />
                       <label>{option}</label>
                     </div>

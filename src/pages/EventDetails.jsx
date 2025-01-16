@@ -10,10 +10,9 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { FaTrophy } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
 import AOS from "aos";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 import getEvents from "../services/eventService";
-import { toast } from "react-toastify";
-
+import { showError } from "../utils/toastUtil";
 
 const EventDetails = () => {
   const { eventId } = useParams();
@@ -22,31 +21,25 @@ const EventDetails = () => {
   const [activeTab, setActiveTab] = useState("description");
 
   const [myevents, setmyEvents] = useState([]);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getEvents();  
-        setmyEvents(data);  
-        
+        const data = await getEvents();
+        setmyEvents(data);
       } catch (error) {
-        toast.error("Error loading data!");  
+        showError("Error loading data!");
       }
     };
 
-    fetchData();  
+    fetchData();
   }, []);
-
 
   useEffect(() => {
     setLoading(true);
 
     const timer = setTimeout(() => {
       const eventDetails = myevents.find((event) => event._id === eventId);
-      
-      console.log(eventDetails)
-
-
       if (eventDetails) {
         setEvent(eventDetails);
       } else {
@@ -60,7 +53,7 @@ const EventDetails = () => {
 
   useEffect(() => {
     AOS.init();
-  }, [])
+  }, []);
 
   if (loading) {
     return <Loader />;
@@ -69,8 +62,6 @@ const EventDetails = () => {
   if (!event) {
     return <NotFound />;
   }
-
-  
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -95,7 +86,6 @@ const EventDetails = () => {
           </div>
         );
       case "memories":
-
         return (
           <div className="tab-content">
             <div className="memories-gallery">
@@ -112,13 +102,24 @@ const EventDetails = () => {
 
   return (
     <>
-      <div data-aos="fade-up" className="individual-event-details-container container">
+      <div
+        data-aos="fade-up"
+        className="individual-event-details-container container"
+      >
         <div className="event-details-banner">
           <img
-            src={event?.Banner||"https://i0.wp.com/linkedinheaders.com/wp-content/uploads/2018/02/galaxy-header.jpg"}
-            alt=""
+            src={
+              event?.Banner ||
+              "https://i0.wp.com/linkedinheaders.com/wp-content/uploads/2018/02/galaxy-header.jpg"
+            }
+            alt="Event Banner"
             className="banner-image"
-            style={{height:"15rem",objectFit:"cover"}}
+            style={{ height: "15rem", objectFit: "cover" }}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src =
+                "https://i0.wp.com/linkedinheaders.com/wp-content/uploads/2018/02/galaxy-header.jpg";
+            }}
           />
         </div>
 
@@ -190,7 +191,13 @@ const EventDetails = () => {
                 </div>
                 <div className="info-text">
                   <p className="top">Team Size</p>
-                  <p className="bottom">{event.TeamSizeStart}-{event.TeamSizeEnd} Members</p>
+                  {event.TeamSizeStart === event.TeamSizeEnd ? (
+                    <p className="bottom">Individual</p>
+                  ) : (
+                    <p className="bottom">
+                      {event.TeamSizeStart}-{event.TeamSizeEnd} Members
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="info-container">
@@ -208,7 +215,14 @@ const EventDetails = () => {
                 </div>
                 <div className="info-text">
                   <p className="top">Registration Deadline</p>
-                  <p className="bottom">{new Date(event.Deadline).toDateString().split(' ').splice(1,2).reverse().join(" ")}</p>
+                  <p className="bottom">
+                    {new Date(event.Deadline)
+                      .toDateString()
+                      .split(" ")
+                      .splice(1, 2)
+                      .reverse()
+                      .join(" ")}
+                  </p>
                 </div>
               </div>
             </div>

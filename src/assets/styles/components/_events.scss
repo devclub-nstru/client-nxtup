@@ -7,10 +7,6 @@
     justify-content: space-between;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    background-image: url("https://images.shiksha.com/mediadata/images/articles/1398182882phpVGC9y8.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 
     &:hover{
         transform: scale(1.05);
@@ -38,7 +34,7 @@
         background-color: #1E1C1C;
 
         .homepage-event-tag-circle{
-            background-color: red;
+            background-color: rgb(3, 203, 3);
             width: 1rem;
             height: 1rem;
             border-radius: 50%;

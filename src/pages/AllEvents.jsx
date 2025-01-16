@@ -6,7 +6,7 @@ import Event from "../components/Event";
 import Clubs from "../components/Clubs";
 import Clans from "../components/Clans";
 import getEvents from "../services/eventService.js";
-import { toast } from "react-toastify";
+import { showError } from "../utils/toastUtil.js";
 import { useEffect } from "react";
 
 
@@ -23,7 +23,7 @@ const AllEvents = () => {
         const data = await getEvents();  
         setEvents(data.filter(el=>el.IsActive));  
       } catch (error) {
-        toast.error("Error loading data!");  
+        showError("Error loading data!");  
       }
       setisLoading(false)
     };

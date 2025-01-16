@@ -9,13 +9,13 @@ function Event({ filter, events, isLoading }) {
   const filteredEvents = events.filter((event) => {
 
     if (filter === "upcoming") {
-      return currentDate < event.Date; // Event is in the future
+      return currentDate < event.Date;
     } else if (filter === "past") {
-      return currentDate > event.Date; // Event is in the past
+      return currentDate > event.Date;
     } else if (event.IsActive) {
-      return event.IsActive; // Include active events
+      return event.IsActive;
     }
-    return false; // Fallback for unsupported filters
+    return false;
   });
 
 
@@ -38,7 +38,7 @@ function Event({ filter, events, isLoading }) {
             />
           ))
         ) : (
-          <p>No {filter} events available.</p>
+          <p className="no_event_available">No {filter} events available.</p>
         )}
       </div>
     </section>

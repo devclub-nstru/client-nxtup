@@ -51,6 +51,15 @@
               font-size: 0.8rem;
               outline: none;
           }
+
+          .checkbox-option, .radio-option{
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            justify-content: flex-start;
+            font-size: 0.8rem;
+          }
   
       }
   
