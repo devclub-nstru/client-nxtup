@@ -95,6 +95,20 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const requiredCheckboxGroups = formFields.filter(
+      (field) => field.type === "checkbox" && field.required
+    );
+
+    for (const group of requiredCheckboxGroups) {
+      const checkboxes = document.querySelectorAll(
+        `input[name='${group.inputName}']:checked`
+      );
+      if (checkboxes.length === 0) {
+        showError(`Please select at least one option for ${group.inputName}`);
+        return;
+      }
+    }
+
     try {
       const response = await axios.post(
         "https://server-nxtup.onrender.com/submits",
@@ -106,9 +120,9 @@ const Registration = () => {
       navigate("/");
     } catch (error) {
       if (error.response) {
-        showError("Something wrong happend. Please try again later!");
+        showError("Something wrong happened. Please try again later!");
       } else {
-        showError("Something wrong happend. Please try again later!");
+        showError("Something wrong happened. Please try again later!");
       }
     }
   };
