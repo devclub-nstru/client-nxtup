@@ -17,6 +17,9 @@ const Registration = () => {
   const [event, setEvent] = useState({});
 
   const [myevents, setmyEvents] = useState([]);
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,6 +57,9 @@ const Registration = () => {
   }, []);
   function handleInputChange(e) {
     const { name, value } = e.target;
+    // if(e.target.type=="checkbox"){
+    //   FormData
+    // }
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -88,11 +94,15 @@ const Registration = () => {
   return (
     <div data-aos="fade-up" className="registration-form-container">
       <div className="intro-container">
-        <h1 className="registration-form-heading">Registration Form</h1>
+        <h1 className="registration-form-heading">
+          {event.Title.includes("Neutron")
+            ? "Application Form"
+            : "Registration Form"}
+        </h1>
       </div>
       <form onSubmit={handleSubmit}>
         {formFields.map((field) => {
-          if (field.type === "Select") {
+          if (field.type === "select") {
             return (
               <div key={field.name} className="form-group">
                 <div className="formInputLabel">
@@ -100,6 +110,7 @@ const Registration = () => {
                   {field.required && <span className="required">*</span>}
                 </div>
                 <select
+                  style={{ color: "#fff !important" }}
                   name={field.inputName}
                   onChange={handleInputChange}
                   required
@@ -115,7 +126,31 @@ const Registration = () => {
             );
           }
 
-          if (field.type === "Checkbox") {
+          if (field.type === "select") {
+            return (
+              <div key={field.name} className="form-group">
+                <div className="formInputLabel">
+                  <label>{field.inputName}</label>
+                  {field.required && <span className="required">*</span>}
+                </div>
+                <select
+                  style={{ color: "#fff !important" }}
+                  name={field.inputName}
+                  onChange={handleInputChange}
+                  required
+                >
+                  <option value="">Select an option</option>
+                  {field.placeholder.map((option, index) => (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            );
+          }
+
+          if (field.type === "checkbox") {
             return (
               <div key={field.name} className="form-group">
                 <div className="formInputLabel">
@@ -126,6 +161,7 @@ const Registration = () => {
                   {field.placeholder.map((option, index) => (
                     <div key={index} className="checkbox-option">
                       <input
+                        style={{ color: "#fff !important" }}
                         type="checkbox"
                         name={field.inputName}
                         value={option}
@@ -139,7 +175,7 @@ const Registration = () => {
             );
           }
 
-          if (field.type === "Radio") {
+          if (field.type === "radio") {
             return (
               <div key={field.name} className="form-group">
                 <div className="formInputLabel">
@@ -150,6 +186,7 @@ const Registration = () => {
                   {field.placeholder.map((option, index) => (
                     <div key={index} className="radio-option">
                       <input
+                        style={{ color: "#ffffff" }}
                         type="radio"
                         name={field.inputName}
                         value={option}
@@ -172,6 +209,7 @@ const Registration = () => {
               </div>
               <input
                 type={field.type}
+                style={{ color: "#ffffff" }}
                 name={field.inputName}
                 placeholder={field.placeholder}
                 required
@@ -183,7 +221,7 @@ const Registration = () => {
 
         <div className="button-container">
           <button type="submit" className="submit-button">
-            Submit Details
+            Apply Now
           </button>
         </div>
       </form>
