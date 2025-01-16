@@ -130,7 +130,6 @@ const Registration = () => {
                         name={field.inputName}
                         value={option}
                         onChange={handleInputChange}
-                        required
                       />
                       <label>{option}</label>
                     </div>
