@@ -57,9 +57,12 @@ const Registration = () => {
   }, []);
   function handleInputChange(e) {
     const { name, value } = e.target;
-    // if(e.target.type=="checkbox"){
-    //   FormData
-    // }
+    if (e.target.type == "checkbox") {
+      return setFormData((prev) => ({
+        ...prev,
+        [name]: (prev?.name ? prev?.name + ", " : "") + value,
+      }));
+    }
     setFormData((prev) => ({
       ...prev,
       [name]: value,
