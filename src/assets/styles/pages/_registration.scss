@@ -59,6 +59,10 @@
             gap: 0.35rem;
             justify-content: flex-start;
             font-size: 0.8rem;
+            input[type="checkbox"], input[type="radio"]{
+              background-color: #2f2f2f;
+              border: none;
+            }
           }
   
       }
