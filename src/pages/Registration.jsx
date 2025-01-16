@@ -181,7 +181,7 @@ const Registration = () => {
                         type="checkbox"
                         name={field.inputName}
                         value={option}
-                        required={field.required}
+                        // required={field.required}
                         onChange={(e) =>
                           handleInputChange(
                             e,
