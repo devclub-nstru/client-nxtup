@@ -14,6 +14,7 @@ const Registration = () => {
   const [formFields, setFormFields] = useState([]);
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [isSubmiting, setisSubmiting] = useState("");
 
   const [event, setEvent] = useState({});
 
@@ -94,7 +95,7 @@ const Registration = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setisSubmiting("Submitting");
     const requiredCheckboxGroups = formFields.filter(
       (field) => field.type === "checkbox" && field.required
     );
@@ -110,14 +111,15 @@ const Registration = () => {
     }
 
     try {
-      const response = await axios.post(
-        "https://server-nxtup.onrender.com/submits",
-        { eventId: event, studentDetails: formData },
-        { headers: { "ngrok-skip-browser-warning": "69420" } }
-      );
+      await new Promise((res) => setTimeout(res, 1000));
+      // const response = await axios.post(
+      //   "https://server-nxtup.onrender.com/submits",
+      //   { eventId: event, studentDetails: formData },
+      //   { headers: { "ngrok-skip-browser-warning": "69420" } }
+      // );
 
       showSuccess("Submit Success!");
-      navigate("/");
+      // navigate("/");
     } catch (error) {
       if (error.response) {
         showError("Something wrong happened. Please try again later!");
@@ -125,6 +127,7 @@ const Registration = () => {
         showError("Something wrong happened. Please try again later!");
       }
     }
+    setisSubmiting("");
   };
 
   if (loading) {
@@ -255,8 +258,12 @@ const Registration = () => {
         })}
 
         <div className="button-container">
-          <button type="submit" className="submit-button">
-            Apply Now
+          <button
+            disabled={isSubmiting == ""}
+            type="submit"
+            className="submit-button"
+          >
+            {isSubmiting || "Apply Now"}
           </button>
         </div>
       </form>
