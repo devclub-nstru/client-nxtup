@@ -259,11 +259,15 @@ const Registration = () => {
 
         <div className="button-container">
           <button
-            // disabled={isSubmiting == ""}
+            disabled={isSubmiting != "" ? true : false}
             type="submit"
             className="submit-button"
+            style={{
+              opacity: isSubmiting != "" ? "0.5" : "1",
+              cursor: isSubmiting != "" ? "not-allowed" : "pointer",
+            }}
           >
-            {"Apply Now"}
+            {isSubmiting || "Apply Now"}
           </button>
         </div>
       </form>
