@@ -27,28 +27,28 @@ const EventDetails = () => {
       try {
         const data = await getEvents();
         setmyEvents(data);
-      } catch (error) {
-        showError("Error loading data!");
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    setLoading(true);
-
-    const timer = setTimeout(() => {
-      const eventDetails = myevents.find((event) => event._id === eventId);
+        const eventDetails = data.find((event) => event._id === eventId);
       if (eventDetails) {
         setEvent(eventDetails);
       } else {
         setEvent(null);
       }
+      } catch (error) {
+        showError("Error loading data!");
+      }
       setLoading(false);
-    }, 1000);
+    };
+    fetchData();
+  }, []);
 
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    // setLoading(true);
+    // const timer = setTimeout(() => {
+      
+      // setLoading(false);
+    // }, 1000);
+
+    // return () => clearTimeout(timer);
   }, [myevents]);
 
   useEffect(() => {

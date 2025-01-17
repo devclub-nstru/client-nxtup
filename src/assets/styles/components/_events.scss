@@ -39,7 +39,6 @@
             height: 1rem;
             border-radius: 50%;
         }
-
         .homepage-event-tag-title{
             font-size: 0.75rem;
         }
@@ -51,7 +50,6 @@
             text-transform: uppercase;
             font-weight: 600;
         }
-
         .homepage-event-date{
             font-size: 0.75rem;
         }
@@ -59,7 +57,10 @@
 }
 
 .homepage-event-container.green{
-    background: linear-gradient(to bottom, #07DF96, #1E1C1C);
+    background-image: url("../../../../public/images/celebrating.jpg");
+    background-size: cover;
+    background-position: center center;
+
     height: 350px;
     @include respond-to(xl) {
         height: 350px;
@@ -71,7 +72,9 @@
 }
 
 .homepage-event-container.orange{
-    background: linear-gradient(to bottom, #FF6F00, #1E1C1C);
+    background-image: url("../../../../public/images/republic.jpg");
+    background-size: cover;
+    background-position: center center;
     height: 380px;;
     @include respond-to(xl) {
         height: 350px;
@@ -83,7 +86,9 @@
 }
 
 .homepage-event-container.red{
-    background: linear-gradient(to bottom, #FF4C65, #1E1C1C);
+    background-image: url("../../../../public/images/neutron.jpg");
+    background-size: cover;
+    background-position: center center;
     height: 410px;
     @include respond-to(xl) {
         height: 350px;
@@ -95,7 +100,9 @@
 }
 
 .homepage-event-container.yellow{
-    background: linear-gradient(to bottom, #ECC231, #1E1C1C);
+    background-image: url("../../../../public/images/sports.jpg");
+    background-size: cover;
+    background-position: center center;
     height: 380px;
     @include respond-to(xl) {
         height: 350px;
@@ -107,7 +114,9 @@
 }
 
 .homepage-event-container.pink{
-    background: linear-gradient(to bottom, #FF00BB, #1E1C1C);
+    background-image: url("../../../../public/images/holi.jpg");
+    background-size: cover;
+    background-position: center center;
     height: 350px;
     @include respond-to(xl) {
         height: 350px;
