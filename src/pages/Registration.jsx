@@ -111,15 +111,15 @@ const Registration = () => {
     }
 
     try {
-      await new Promise((res) => setTimeout(res, 1000));
-      // const response = await axios.post(
-      //   "https://server-nxtup.onrender.com/submits",
-      //   { eventId: event, studentDetails: formData },
-      //   { headers: { "ngrok-skip-browser-warning": "69420" } }
-      // );
+      // await new Promise( (res) => setTimeout(res, 1000));
+      const response = await axios.post(
+        "https://server-nxtup.onrender.com/submits",
+        { eventId: event, studentDetails: formData },
+        { headers: { "ngrok-skip-browser-warning": "69420" } }
+      );
 
       showSuccess("Submit Success!");
-      // navigate("/");
+      navigate("/");
     } catch (error) {
       if (error.response) {
         showError("Something wrong happened. Please try again later!");
