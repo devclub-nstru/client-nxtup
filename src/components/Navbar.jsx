@@ -26,7 +26,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="link">
-              <Link to="https://discord.com">
+              <Link to="https://discord.gg/5XQceXM3">
                 <FaDiscord />
               </Link>
             </li>
