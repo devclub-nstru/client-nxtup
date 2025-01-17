@@ -11,4 +11,5 @@ body {
   color: $primary-text-color;
   background-color: $primary-background-color;
   user-select: none;
+  overflow-x: hidden;
 }
