@@ -8,7 +8,12 @@ function AboutUs() {
       <div className="about-us-container container">
         <h1 className="about-us-container-heading">About Us</h1>
         <p className="about-us-container-paragraph">
-        Dev Club at Newton School of Technology is a dynamic hub for open-source enthusiasts, research-driven minds, and peer-to-peer learners. Our mission is to foster innovation, collaboration, and continuous growth through hands-on projects, knowledge sharing, and impactful contributions to the tech community. Join Dev Club to explore, create, and excel together!
+          Dev Club at Newton School of Technology is a dynamic hub for
+          open-source enthusiasts, research-driven minds, and peer-to-peer
+          learners. Our mission is to foster innovation, collaboration, and
+          continuous growth through hands-on projects, knowledge sharing, and
+          impactful contributions to the tech community. Join Dev Club to
+          explore, create, and excel together!
         </p>
         <div className="about-us-container-events">
           <Link to="https://www.linkedin.com/in/adityainnovates/">
@@ -64,7 +69,7 @@ function AboutUs() {
             <CardsContainer
               clubName="Udit Jain"
               presidentName="Backend Developer"
-              imageUrl="/images/udit_pfp.jpeg"
+              imageUrl="/images/UditJain_pfp.jpeg"
             />
           </Link>
         </div>
