@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import getEvents from "../services/eventService";
 import axios from "axios";
 import { toast } from "react-toastify";
+import NotFound from "./NotFound";
 
 const Registration = () => {
   const { eventId } = useParams();
@@ -36,23 +37,24 @@ const Registration = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    setLoading(true);
+ useEffect(() => {
+  setLoading(true);
 
-    const timer = setTimeout(() => {
-      const eventDetails = myevents.find((event) => event._id === eventId);
+  const timer = setTimeout(() => {
+    const eventDetails = myevents.find((event) => event._id === eventId);
 
-      if (eventDetails) {
-        setEvent(eventDetails);
-        setFormFields(eventDetails?.Form?.sequence);
-      } else {
-        setEvent(null);
-      }
-      setLoading(false);
-    }, 1000);
+    if (eventDetails) {
+      setEvent(eventDetails);
+      setFormFields(eventDetails?.Form?.sequence);
+    } else {
+      <NotFound/> // Redirect to the 404 page if no event is found
+    }
+    setLoading(false);
+  }, 1000);
 
-    return () => clearTimeout(timer);
-  }, [myevents]);
+  return () => clearTimeout(timer);
+}, [myevents]);
+
 
   useEffect(() => {
     AOS.init();
